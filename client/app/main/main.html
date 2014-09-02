@@ -1,0 +1,67 @@
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Quiz App</a>
+          <a class="navbar-brand" href="#" id="score">Score: {{score.value}}</a>
+        </div>
+        <div class="collapse navbar-collapse">
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container" ng-controller="QuizController">
+      <h3 id="countDown">{{ timeLeft }} seconds left!</h3>
+      <button ng-show="!isRunning" ng-click="startTimer()">Start</button>
+      <button ng-show="isRunning" ng-click="pauseTimer()">Pause</button>
+      <button ng-click="restartTimer()">Restart</button>
+      <div class="jumbotron question" ng-repeat="question in quiz | orderBy:'difficulty'">
+        <form action="">
+        <h2>{{$index + 1}}. {{question.q}}</h2>
+          <ul id='question-list'>
+            <li ng-repeat="option in question.options"><input type="radio" name="question-{{$parent.$index}}" value="" ng-click="check(option.value, question)" ng-disabled="question.answered"> {{option.value}}</li>
+          </ul>
+        </form>
+      </div>
+      <form name="newQuestionForm" novalidate>
+        <div class="jumbotron" ng-controller="QuestionController as quest">
+            <h3>Create a New Question</h3>
+            Question: <input type="text" ng-model="quest.newQuestion.q" name="question"ng-minlength="10"/>
+            <br></br>
+            <button ng-click="quest.addOption()">Add Answer Option: </button>
+            <div ng-form="optionForm">
+              <div ng-repeat="option in quest.newQuestion.options">
+                <input type="radio" name="answer" value="{{option.value}}" ng-model="quest.newQuestion.answer"></input>
+                <input type="text" name="option" ng-model="option.value" ng-minlength="1"></input>
+                <button class="btn btn-xs btn-danger">Delete</button>
+              </div>
+            </div>
+            <br></br>
+            Difficulty: <input type="text" ng-model="quest.newQuestion.difficulty" name="difficulty" />
+            <br></br>
+            <button ng-click="quest.submit()">Submit Question</button>
+        </div>
+      </form>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+    <!--<script src="../../dist/js/bootstrap.min.js"></script>-->
+
+<!-- <div>
+  <li ng-repeat="question in quiz | orderBy:'difficulty'" style="list-style-type:none;">
+    <strong>{{$index + 1}}. {{ question.q }}</strong>
+    <div ng-repeat="option in question.options">
+      <button>{{ option.value || option.answer }}</button>
+    </div>
+  </li>
+</div> -->

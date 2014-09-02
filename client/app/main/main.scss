@@ -1,0 +1,29 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.question {
+  text-align: center;
+  margin: 20px;
+}
+
+#score {
+  color: purple;
+}
+
+#countDown {
+  margin-top: 20px;
+  color: green;
+}
+
+.ng-dirty.ng-invalid {
+  border-color: red;
+}
