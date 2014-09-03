@@ -1,10 +1,10 @@
 angular.module('quizApp2App')
   .provider('scoreKeeper', function() {
-    var score = 0;
+    var score;
     return {
-      // setValue: function(val) {
-      //   score = val;
-      // },
+      setValue: function(val) {
+        score = val;
+      },
       $get: function () {
         return  {
           addScore: function() {
@@ -17,4 +17,7 @@ angular.module('quizApp2App')
         };
       }
     };
+  })
+  .config(function(scoreKeeperProvider) {
+    scoreKeeperProvider.setValue(0);
   });
