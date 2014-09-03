@@ -1,13 +1,11 @@
 'use strict';
 
 angular.module('quizApp2App')
-  .controller('MainCtrl', function($scope) {
-    $scope.score = {
-      value: 0
-    };
-    $scope.$on('increase_score', function() {
-      $scope.score.value++;
-    })
+  .controller('MainCtrl', function($scope, scoreKeeper, scoreKeeperFactory) {
+    $scope.score = scoreKeeperFactory.getScore();
+    // $scope.$on('increase_score', function() {
+    //   $scope.score.value++;
+    // })
   });
   // .controller('MainCtrl', function ($scope, $http) {
   //   $scope.awesomeThings = [];

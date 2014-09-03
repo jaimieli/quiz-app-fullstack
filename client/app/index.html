@@ -44,11 +44,15 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+    <script src="bower_components/angularLocalStorage/src/angularLocalStorage.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="app/services/localStorageFactory.js"></script>
+        <script src="app/services/score.js"></script>
+        <script src="app/services/scoreKeeperFactory.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/quizcontroller.js"></script>

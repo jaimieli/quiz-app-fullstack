@@ -36,7 +36,7 @@ Question.find({}).remove(function() {
       'answer': 'noHope.js',
       'difficulty': 1
     }, {
-      'q': "Out of the following frontend frameworks, which framework is most rails-like",
+      'q': "Out of the following frontend frameworks, which framework is most rails-like?",
       'options': [{
         'value': 'Ember.js'
       }, {
