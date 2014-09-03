@@ -19,4 +19,5 @@ angular.module('quizApp2App', [
         redirectTo: '/'
       });
     $locationProvider.html5Mode(true).hashPrefix("#!");
+    // scoreKeeperProvider.setValue(0);
   });
