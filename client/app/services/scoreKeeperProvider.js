@@ -1,4 +1,4 @@
-angular.module('quizApp2App')
-  .provider('scoreKeeper', function() {
+// angular.module('quizApp2App')
+//   .provider('scoreKeeper', function() {
 
-  });
+//   });

@@ -9,7 +9,7 @@ angular.module('quizApp2App', [
   'ui.bootstrap',
   'angularLocalStorage'
 ])
-  .config(function ($routeProvider, $locationProvider, $) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'main/main.html',
@@ -19,5 +19,4 @@ angular.module('quizApp2App', [
         redirectTo: '/'
       });
     $locationProvider.html5Mode(true).hashPrefix("#!");
-    $scoreKeeperProvider
   });
