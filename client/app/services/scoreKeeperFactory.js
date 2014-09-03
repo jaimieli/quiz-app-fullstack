@@ -1,13 +1,12 @@
 angular.module('quizApp2App')
-  .factory('scoreKeeperFactory', function(scoreKeeper) {
+  .factory('scoreKeeperFactory', function() {
     var score = 0;
-
     return {
       addScore: function() {
-        return scoreKeeper.score++;
+        score++;
       },
-      getScore: function() {
-        return scoreKeeper.score;
+      getScore: function($scope) {
+        return score;
       }
     };
   });

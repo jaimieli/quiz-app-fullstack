@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('quizApp2App')
-  .controller('QuizController', function($scope, $timeout, $interval, quizService, storage, scoreKeeperFactory, scoreKeeper) {
+  .controller('QuizController', function($scope, $timeout, $interval, quizService, storage, scoreKeeperFactory) {
     $scope.timeLeft = 30;
 
     var intervalId;
@@ -80,7 +80,9 @@ angular.module('quizApp2App')
 
     $scope.check = function(opt, quest) {
       if (!quest.answered && opt === quest.answer) {
-        scoreKeeperFactory.addScore(scoreKeeper);
+        console.log("OK!");
+        scoreKeeperFactory.addScore();
+        $scope.score.value = scoreKeeperFactory.getScore();
       }
       quest.answered = true;
     };
