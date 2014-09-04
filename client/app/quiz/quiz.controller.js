@@ -91,11 +91,6 @@ angular.module('quizApp2App')
   .directive('quiz', function() {
     return {
       restrict: 'E',
-      scope: {
-        text: '=',
-        number: '=',
-        answers: '='
-      },
       templateUrl: 'app/quiz/quiz.html',
       controller:"QuizController"
     }

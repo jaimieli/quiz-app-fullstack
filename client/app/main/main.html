@@ -19,13 +19,12 @@
         <h3 id="countDown">{{ timeLeft }} seconds left!</h3>
         <button ng-show="!isRunning" ng-click="startTimer()">Start</button>
         <button ng-show="isRunning" ng-click="pauseTimer()">Pause</button>
-        <button ng-click="restartTimer()">Restart</button>
+        <button ng-click="restartTimer()">Reset</button>
       </div>
       <div class="jumbotron question" ng-repeat="question in quiz | orderBy:'difficulty' ">
-        <quiz text="question.q" number="$index + 1" answers="question.options"></quiz>
+        <quiz></quiz>
       </div>
-      <!-- <div ng-include=" 'app/newQuestion/newQuestion.html' "></div> -->
-      <new-question ng-controller="QuestionController as quest"></new-question>
+      <new-question></new-question>
 
 
     </div><!-- /.container -->

@@ -28,7 +28,8 @@ angular.module('quizApp2App')
   .directive('newQuestion', function() {
     return {
       restrict: 'E',
-      scope: true,
-      templateUrl: 'app/newQuestion/newQuestion.html'
+      templateUrl: 'app/newQuestion/newQuestion.html',
+      controller: 'QuestionController',
+      controllerAs: 'quest'
     }
   });
