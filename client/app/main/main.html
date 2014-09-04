@@ -14,39 +14,19 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
     <div class="container" ng-controller="QuizController">
-      <h3 id="countDown">{{ timeLeft }} seconds left!</h3>
-      <button ng-show="!isRunning" ng-click="startTimer()">Start</button>
-      <button ng-show="isRunning" ng-click="pauseTimer()">Pause</button>
-      <button ng-click="restartTimer()">Restart</button>
-      <div class="jumbotron question" ng-repeat="question in quiz | orderBy:'difficulty'">
-        <form action="">
-        <h2>{{$index + 1}}. {{question.q}}</h2>
-          <ul id='question-list'>
-            <li ng-repeat="option in question.options"><input type="radio" name="question-{{$parent.$index}}" value="" ng-click="check(option.value, question)" ng-disabled="question.answered"> {{option.value}}</li>
-          </ul>
-        </form>
+      <div class="well">
+        <h3 id="countDown">{{ timeLeft }} seconds left!</h3>
+        <button ng-show="!isRunning" ng-click="startTimer()">Start</button>
+        <button ng-show="isRunning" ng-click="pauseTimer()">Pause</button>
+        <button ng-click="restartTimer()">Restart</button>
       </div>
-      <form name="newQuestionForm" novalidate>
-        <div class="jumbotron" ng-controller="QuestionController as quest">
-            <h3>Create a New Question</h3>
-            Question: <input type="text" ng-model="quest.newQuestion.q" name="question"ng-minlength="10"/>
-            <br></br>
-            <button ng-click="quest.addOption()">Add Answer Option: </button>
-            <div ng-form="optionForm">
-              <div ng-repeat="option in quest.newQuestion.options">
-                <input type="radio" name="answer" value="{{option.value}}" ng-model="quest.newQuestion.answer"></input>
-                <input type="text" name="option" ng-model="option.value" ng-minlength="1"></input>
-                <button class="btn btn-xs btn-danger" ng-click="quest.deleteOption($index)">Delete</button>
-              </div>
-            </div>
-            <br></br>
-            Difficulty: <input type="number" ng-model="quest.newQuestion.difficulty" name="difficulty" />
-            <br></br>
-            <button ng-click="quest.submit()">Submit Question</button>
-        </div>
-      </form>
+      <div class="jumbotron question" ng-repeat="question in quiz | orderBy:'difficulty' ">
+        <quiz text="question.q" number="$index + 1" answers="question.options"></quiz>
+      </div>
+      <!-- <div ng-include=" 'app/newQuestion/newQuestion.html' "></div> -->
+      <new-question ng-controller="QuestionController as quest"></new-question>
+
 
     </div><!-- /.container -->
 

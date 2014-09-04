@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('quizApp2App')
-  .controller('QuizController', function($scope, $timeout, $interval, quizService, storage, scoreKeeper) {
+  .controller('QuizController', function($scope, $timeout, $interval, quizService, scoreKeeper) {
     $scope.timeLeft = 30;
 
     var intervalId;
@@ -79,6 +79,7 @@ angular.module('quizApp2App')
     // }];
 
     $scope.check = function(opt, quest) {
+      console.log('clicked!');
       if (!quest.answered && opt === quest.answer) {
         console.log("OK!");
         scoreKeeper.addScore();
@@ -86,4 +87,16 @@ angular.module('quizApp2App')
       }
       quest.answered = true;
     };
+  })
+  .directive('quiz', function() {
+    return {
+      restrict: 'E',
+      scope: {
+        text: '=',
+        number: '=',
+        answers: '='
+      },
+      templateUrl: 'app/quiz/quiz.html',
+      controller:"QuizController"
+    }
   });

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('quizApp2App')
-  .controller('QuestionController', function ($scope, quizService, storage) {
+  .controller('QuestionController', function ($scope, quizService) {
     this.newQuestion = {options:[]};
     this.options=[];
     this.count = 0;
@@ -23,5 +23,12 @@ angular.module('quizApp2App')
     };
     this.deleteOption = function(index) {
       this.newQuestion.options.splice(index, 1);
+    }
+  })
+  .directive('newQuestion', function() {
+    return {
+      restrict: 'E',
+      scope: true,
+      templateUrl: 'app/newQuestion/newQuestion.html'
     }
   });
