@@ -9,7 +9,6 @@ angular.module('quizApp2App')
         return  {
           addScore: function() {
             score++;
-            console.log(score + " after")
           },
           getScore: function($scope) {
             return score;

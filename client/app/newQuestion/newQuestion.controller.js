@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('quizApp2App')
-  .controller('QuestionController', function ($scope, quizService, $http) {
+  .controller('QuestionController', function ($scope, $http) {
     this.newQuestion = {choices:[]};
     this.choices=[];
     this.count = 0;
@@ -13,19 +13,16 @@ angular.module('quizApp2App')
       this.count++;
     };
     this.submit = function() {
-      console.log(this.newQuestion);
       if(this.count < 2) {
         return alert('You need at least 2 choices.');
       }
       else {
         this.newQuestion.difficulty = +this.newQuestion.difficulty;
         $scope.quiz.push(this.newQuestion);
-        quizService.addQuestion(this.newQuestion);
         this.count = 0;
         if(this.newQuestion === '') {
           return;
         }
-        console.log('scope new question: ', this.newQuestion);
         $http.post('/api/questions', this.newQuestion);
         this.newQuestion = {choices:[]};
         this.newQuestion = '';
@@ -43,13 +40,3 @@ angular.module('quizApp2App')
       controllerAs: 'quest'
     }
   });
-
-// .controller('MainCtrl', function ($scope, $http) {
-//     $scope.awesomeThings = [];
-
-
-
-//     $scope.deleteThing = function(thing) {
-//       $http.delete('/api/things/' + thing._id);
-//     };
-//   });
