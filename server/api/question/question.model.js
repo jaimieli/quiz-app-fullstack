@@ -4,8 +4,8 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var questionSchema = new Schema({
-  question: String,
-  choices: [{value: String}],
+  q: String,
+  choices: [],
   answer: String,
   difficulty: Number
 });

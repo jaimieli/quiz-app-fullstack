@@ -22,8 +22,8 @@ angular.module('quizApp2App')
     $scope.restartTimer = function() {
       $scope.timeLeft = 30;
     };
-
-    $scope.quiz = quizService.getQuestions();
+    $scope.quiz = [];
+    // $scope.quiz = quizService.getQuestions();
     // $scope.quiz = [{
     //   "q": "Who is the best ping pong player at FSA?",
     //   'options': [{

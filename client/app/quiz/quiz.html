@@ -1,6 +1,6 @@
   <form action="">
   <h2>{{$index + 1}}. {{question.q}}</h2>
     <ul id='question-list'>
-      <li ng-repeat="option in question.options"><input type="radio" name="question-{{$parent.$index}}" value="" ng-click="check(option.value, question)" ng-disabled="question.answered"> {{option.value}}</li>
+      <li ng-repeat="option in question.choices"><input type="radio" name="question-{{$parent.$index}}" value="" ng-click="check(option.value, question)" ng-disabled="question.answered"> {{option.value}}</li>
     </ul>
   </form>

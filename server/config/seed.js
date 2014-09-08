@@ -11,7 +11,7 @@ var Question = require('../api/question/question.model');
 Question.find({}).remove(function() {
   Question.create({
       "q": "Who is the best ping pong player at FSA?",
-      'options': [{
+      'choices': [{
         'value': "Mike"
       }, {
         'value': "Eddie"
@@ -24,7 +24,7 @@ Question.find({}).remove(function() {
       'difficulty': 3
     }, {
       "q": "Which robot name was chanted during Lego Mindstorms?",
-      'options': [{
+      'choices': [{
         'value': 'infiniteLoop'
       }, {
         'value': 'noHope.js'
@@ -37,7 +37,7 @@ Question.find({}).remove(function() {
       'difficulty': 1
     }, {
       'q': "Out of the following frontend frameworks, which framework is most rails-like?",
-      'options': [{
+      'choices': [{
         'value': 'Ember.js'
       }, {
         'value': 'Angular.js'
@@ -50,7 +50,7 @@ Question.find({}).remove(function() {
       'difficulty': 2
     }, {
       'q': "Which project used a local data store?",
-      'options': [{
+      'choices': [{
         'value': 'TripPlanner'
       }, {
         'value': 'Twitter.js'
